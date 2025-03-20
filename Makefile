@@ -1,5 +1,11 @@
-install:
+install: deps-install
 	npm ci
 
-gendiff:
-	node bin/gendiff.js
+deps-install:
+	npm ci
+
+deps-update:
+	npx ncu -u
+
+lint:
+	npx eslint .
