@@ -1,2 +1,2 @@
-make lint-fix
-make lint
+files=$(git diff --cached --name-only)
+npx eslint $files --fix
