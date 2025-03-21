@@ -11,5 +11,8 @@ program
   .argument('<filepath1>', 'path to first file')
   .argument('<filepath2>', 'path to second file')
   .option('-f, --format <type>', 'output format')
+  .action((filepath1, filepath2, options) => {
+    console.log(filepath1, filepath2, options.format)
+  })
 
 program.parse()
