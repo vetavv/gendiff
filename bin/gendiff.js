@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { Command } from 'commander'
-const program = new Command()
+import { Command } from 'commander';
+const program = new Command();
 
 program
   .name('gendiff')
@@ -12,7 +12,7 @@ program
   .argument('<filepath2>', 'path to second file')
   .option('-f, --format <type>', 'output format')
   .action((filepath1, filepath2, options) => {
-    console.log(filepath1, filepath2, options.format)
-  })
+    console.log(filepath1, filepath2, options.format);
+  });
 
-program.parse()
+program.parse();
