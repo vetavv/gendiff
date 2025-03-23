@@ -1,2 +1,3 @@
 files=$(git diff --cached --name-only)
 npx eslint $files --fix
+make test
