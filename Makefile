@@ -15,3 +15,6 @@ lint-fix:
 
 test:
 	npm test
+
+debug:
+	npm debug:jest

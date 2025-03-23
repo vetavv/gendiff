@@ -8,10 +8,13 @@
 	"type": "module",
 	"scripts": {
 		"test": "jest",
-		"prepare": "husky"
+		"prepare": "husky",
+		"debug:jest": "node --inspect-brk node_modules/.bin/jest --runInBand"
 	},
 	"dependencies": {
-		"commander": "^13.1.0"
+		"commander": "^13.1.0",
+		"lodash": "^4.17.21",
+		"yaml": "^2.7.0"
 	},
 	"bin": {
 		"gendiff": "bin/gendiff.js"
