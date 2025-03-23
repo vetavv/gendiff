@@ -17,4 +17,4 @@ test:
 	npm test
 
 debug:
-	npm debug:jest
+	npm run debug:jest
