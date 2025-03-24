@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const makeDiffUnit = (key, status, oldValue, newValue) => ({
+const makeDiffRecord = (key, status, oldValue, newValue) => ({
   key,
   status,
   ...(oldValue !== undefined && oldValue !== newValue && { oldValue }),
@@ -38,7 +38,7 @@ const buildDiff = (data1, data2) => {
       status = 'changed';
     }
 
-    return makeDiffUnit(key, status, value1, value2);
+    return makeDiffRecord(key, status, value1, value2);
   });
 
   return diff;
