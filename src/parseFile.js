@@ -1,4 +1,13 @@
 import YAML from 'yaml';
+import fs from 'fs';
+import path from 'path';
+
+const readFile = (filename) => {
+  const filePath = path.join(process.cwd(), filename);
+  return fs.readFileSync(filePath, 'utf8');
+};
+
+const getFileExtention = filename => path.extname(filename);
 
 const parseFile = (file, extension) => {
   if (extension === '.json') {
@@ -11,4 +20,4 @@ const parseFile = (file, extension) => {
   throw new Error(`Unsupported format: ${extension}`);
 };
 
-export default parseFile;
+export { readFile, getFileExtention, parseFile };
