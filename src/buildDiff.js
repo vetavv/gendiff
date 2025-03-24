@@ -3,7 +3,7 @@ import _ from 'lodash';
 const makeDiffUnit = (key, status, oldValue, newValue) => ({
   key,
   status,
-  ...(oldValue !== undefined && { oldValue }),
+  ...(oldValue !== undefined && oldValue !== newValue && { oldValue }),
   ...(newValue !== undefined && { newValue }),
 });
 
