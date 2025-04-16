@@ -8,8 +8,7 @@
 	"type": "module",
 	"scripts": {
 		"test": "jest",
-		"prepare": "husky",
-		"debug:jest": "node --inspect-brk node_modules/.bin/jest --runInBand"
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"commander": "^13.1.0",
