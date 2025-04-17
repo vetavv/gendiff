@@ -44,9 +44,9 @@ describe('buildDiff', () => {
     const obj2 = { key2: 'value2', key3: 'value3' };
 
     const expected = [
-      { key: 'key1', status: 'removed', oldValue: 'value1' },
-      { key: 'key2', status: 'unchanged', newValue: 'value2' },
-      { key: 'key3', status: 'added', newValue: 'value3' },
+      { key: 'key1', status: 'removed', value: 'value1' },
+      { key: 'key2', status: 'unchanged', value: 'value2' },
+      { key: 'key3', status: 'added', value: 'value3' },
     ];
 
     expect(buildDiff(obj1, obj2)).toEqual(expected);
@@ -57,8 +57,8 @@ describe('buildDiff', () => {
     const obj2 = { key1: 'value1', key2: 'value2' };
 
     const expected = [
-      { key: 'key1', status: 'unchanged', newValue: 'value1' },
-      { key: 'key2', status: 'unchanged', newValue: 'value2' },
+      { key: 'key1', status: 'unchanged', value: 'value1' },
+      { key: 'key2', status: 'unchanged', value: 'value2' },
     ];
     expect(buildDiff(obj1, obj2)).toEqual(expected);
   });
@@ -77,7 +77,7 @@ describe('buildDiff', () => {
     const obj2 = { key1: 'value1' };
 
     const expected = [
-      { key: 'key1', status: 'added', newValue: 'value1' },
+      { key: 'key1', status: 'added', value: 'value1' },
     ];
 
     expect(buildDiff(obj1, obj2)).toEqual(expected);
@@ -88,7 +88,7 @@ describe('buildDiff', () => {
     const obj2 = {};
 
     const expected = [
-      { key: 'key1', status: 'removed', oldValue: 'value1' },
+      { key: 'key1', status: 'removed', value: 'value1' },
     ];
 
     expect(buildDiff(obj1, obj2)).toEqual(expected);
@@ -99,7 +99,7 @@ describe('buildDiff', () => {
     const obj2 = { key1: 'value2' };
 
     const expected = [
-      { key: 'key1', status: 'changed', oldValue: 'value1', newValue: 'value2' },
+      { key: 'key1', status: 'changed', oldValue: 'value1', value: 'value2' },
     ];
 
     expect(buildDiff(obj1, obj2)).toEqual(expected);
@@ -120,14 +120,20 @@ describe('buildDiff', () => {
     };
 
     const expected = [
-      { key: 'name', newValue: 'Veta', status: 'unchanged' },
-      { pets: [
-        [{ key: 'type', oldValue: 'cat', newValue: 'rat', status: 'changed' },
-          { key: 'name', newValue: 'Lilo', status: 'unchanged' }],
-        [{ key: 'type', oldValue: 'dog', newValue: 'cat', status: 'changed' },
-          { key: 'name', oldValue: 'Rex', status: 'removed' }],
-
-      ],
+      { key: 'name', value: 'Veta', status: 'unchanged' },
+      {
+        key: 'pets',
+        status: 'nested-array',
+        value: [
+          { key: '0', status: 'nested-object', value: [
+            { key: 'type', oldValue: 'cat', value: 'rat', status: 'changed' },
+            { key: 'name', value: 'Lilo', status: 'unchanged' },
+          ] },
+          { key: '1', status: 'nested-object', value: [
+            { key: 'type', oldValue: 'dog', value: 'cat', status: 'changed' },
+            { key: 'name', value: 'Rex', status: 'removed' },
+          ] },
+        ],
       },
     ];
     expect(buildDiff(obj1, obj2)).toEqual(expected);
