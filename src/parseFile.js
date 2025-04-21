@@ -1,9 +1,13 @@
 import YAML from 'yaml';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const readFile = (filename) => {
-  const filePath = path.join(process.cwd(), filename);
+  const filePath = path.join(__dirname, '..', filename);
   return fs.readFileSync(filePath, 'utf8');
 };
 
