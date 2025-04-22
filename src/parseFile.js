@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const readFile = (filename) => {
-  const filePath = path.join(__dirname, '..', filename);
+  const filePath = path.resolve(__dirname, '..', filename);
   return fs.readFileSync(filePath, 'utf8');
 };
 
