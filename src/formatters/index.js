@@ -25,24 +25,50 @@ const formatStylish = (data) => {
   return `[${newLine}${data.map(e => getStylishNode(e)).join(newLine)}${newLine}]`;
 };
 
-const formatPlain = (data) => {
-  const getPlainNode = (node, path = []) => {
-    const newPath = [...path, node.key];
-    const value = typeof node.value === 'string' ? `'${node.value}'` : typeof node.value === 'object' ? JSON.stringify(node.value) : node.value;
-    const oldValue = typeof node.oldValue === 'string' ? `'${node.oldValue}'` : typeof node.oldValue === 'object' ? JSON.stringify(node.oldValue) : node.oldValue;
-    if (node.status === 'added') return `Property '${newPath.join('.')}' was added with value: ${value}`;
-    if (node.status === 'removed') return `Property '${newPath.join('.')}' was removed`;
-    if (node.status === 'changed') return `Property '${newPath.join('.')}' was updated. From ${oldValue} to ${value}`;
-    if (node.status.startsWith('nested-')) return node.value.map(e => getPlainNode(e, newPath)).flat();
+const formatDataPlain = (data) => {
+  const formatValue = (value) => {
+    if (typeof value === 'string') {
+      return `'${value}'`;
+    }
+    else if (typeof value === 'object') {
+      return JSON.stringify(value);
+    }
+    return value.toString();
+  };
+
+  const formatNodePlain = (node, nodePath) => {
+    const status = node.status;
+
+    if (status.startsWith('nested-')) {
+      const children = node.value;
+      return children.map((child) => {
+        const newPath = `${nodePath}.${child.key}`;
+        return formatNodePlain(child, newPath);
+      }).flat();
+    }
+
+    const value = formatValue(node.value);
+    if (status === 'added') return `Property '${nodePath}' was added with value: ${value}`;
+    if (status === 'removed') return `Property '${nodePath}' was removed`;
+    if (status === 'changed') {
+      const oldValue = formatValue(node.oldValue);
+      return `Property '${nodePath}' was updated. From ${oldValue} to ${value}`;
+    }
     return '';
   };
 
-  return data.map(e => getPlainNode(e)).flat().filter(e => e !== '').join('\n');
+  return (
+    data
+      .map(e => formatNodePlain(e, e.key))
+      .flat()
+      .filter(e => e !== '')
+      .join('\n')
+  );
 };
 
 const formatDiffData = (data, format) => {
   if (typeof format === 'undefined' || format === 'json') return JSON.stringify(data, null, 2);
-  if (format === 'plain') return formatPlain(data);
+  if (format === 'plain') return formatDataPlain(data);
   if (format === 'stylish') return formatStylish(data);
   throw new Error(`Format ${format} is not supported`);
 };
