@@ -1,0 +1,156 @@
+[
+  {
+    "key": "user",
+    "status": "nested-object",
+    "value": [
+      {
+        "key": "id",
+        "status": "changed",
+        "oldValue": 123,
+        "value": "123"
+      },
+      {
+        "key": "name",
+        "status": "unchanged",
+        "value": "Alice"
+      },
+      {
+        "key": "email",
+        "status": "changed",
+        "oldValue": "alice@example.com",
+        "value": "alice@sample.com"
+      },
+      {
+        "key": "isActive",
+        "status": "changed",
+        "oldValue": true,
+        "value": "true"
+      },
+      {
+        "key": "roles",
+        "status": "nested-array",
+        "value": [
+          {
+            "key": "0",
+            "status": "unchanged",
+            "value": "admin"
+          },
+          {
+            "key": "1",
+            "status": "removed",
+            "value": "editor"
+          }
+        ]
+      },
+      {
+        "key": "profile",
+        "status": "nested-object",
+        "value": [
+          {
+            "key": "age",
+            "status": "unchanged",
+            "value": 30
+          },
+          {
+            "key": "bio",
+            "status": "removed",
+            "value": null
+          },
+          {
+            "key": "social",
+            "status": "nested-object",
+            "value": [
+              {
+                "key": "twitter",
+                "status": "changed",
+                "oldValue": "@alice123",
+                "value": null
+              },
+              {
+                "key": "linkedin",
+                "status": "removed",
+                "value": "alice-linkedin"
+              },
+              {
+                "key": "instagram",
+                "status": "added",
+                "value": "@alice_ig"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "settings",
+    "status": "nested-object",
+    "value": [
+      {
+        "key": "theme",
+        "status": "changed",
+        "oldValue": "dark",
+        "value": "light"
+      },
+      {
+        "key": "notifications",
+        "status": "nested-object",
+        "value": [
+          {
+            "key": "email",
+            "status": "unchanged",
+            "value": true
+          },
+          {
+            "key": "sms",
+            "status": "removed",
+            "value": false
+          }
+        ]
+      },
+      {
+        "key": "language",
+        "status": "changed",
+        "oldValue": "en",
+        "value": [
+          "en",
+          "fr"
+        ]
+      }
+    ]
+  },
+  {
+    "key": "history",
+    "status": "removed",
+    "value": []
+  },
+  {
+    "key": "tags",
+    "status": "nested-array",
+    "value": [
+      {
+        "key": "0",
+        "status": "removed",
+        "value": "example"
+      },
+      {
+        "key": "1",
+        "status": "removed",
+        "value": "test"
+      }
+    ]
+  },
+  {
+    "key": "version",
+    "status": "changed",
+    "oldValue": "1.0",
+    "value": "1.1"
+  },
+  {
+    "key": "extra",
+    "status": "added",
+    "value": {
+      "notes": "New field"
+    }
+  }
+]

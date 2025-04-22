@@ -1,0 +1,28 @@
+{
+    "user": {
+      "id": "123",
+      "name": "Alice",
+      "email": "alice@sample.com",
+      "isActive": "true",
+      "roles": ["admin"],
+      "profile": {
+        "age": 30,
+        "social": {
+          "twitter": null,
+          "instagram": "@alice_ig"
+        }
+      }
+    },
+    "settings": {
+      "theme": "light",
+      "notifications": {
+        "email": true
+      },
+      "language": ["en", "fr"]
+    },
+    "tags": [],
+    "version": "1.1",
+    "extra": {
+      "notes": "New field"
+    }
+  }

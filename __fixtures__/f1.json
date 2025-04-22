@@ -1,0 +1,28 @@
+{
+    "user": {
+      "id": 123,
+      "name": "Alice",
+      "email": "alice@example.com",
+      "isActive": true,
+      "roles": ["admin", "editor"],
+      "profile": {
+        "age": 30,
+        "bio": null,
+        "social": {
+          "twitter": "@alice123",
+          "linkedin": "alice-linkedin"
+        }
+      }
+    },
+    "settings": {
+      "theme": "dark",
+      "notifications": {
+        "email": true,
+        "sms": false
+      },
+      "language": "en"
+    },
+    "history": [],
+    "tags": ["example", "test"],
+    "version": "1.0"
+  }

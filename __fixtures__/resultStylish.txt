@@ -1,0 +1,43 @@
+[
+    user: {
+      - id: 123
+      + id: '123'
+        name: 'Alice'
+      - email: 'alice@example.com'
+      + email: 'alice@sample.com'
+      - isActive: true
+      + isActive: 'true'
+        roles: [
+            0: 'admin'
+            1: 'editor'
+        ]
+        profile: {
+            age: 30
+            bio: null
+            social: {
+              - twitter: '@alice123'
+              + twitter: null
+                linkedin: 'alice-linkedin'
+                instagram: '@alice_ig'
+            }
+        }
+    }
+    settings: {
+      - theme: 'dark'
+      + theme: 'light'
+        notifications: {
+            email: true
+            sms: false
+        }
+      - language: 'en'
+      + language: ["en","fr"]
+    }
+    history: []
+    tags: [
+        0: 'example'
+        1: 'test'
+    ]
+  - version: '1.0'
+  + version: '1.1'
+    extra: {"notes":"New field"}
+]

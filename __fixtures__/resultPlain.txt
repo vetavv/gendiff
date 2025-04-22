@@ -1,0 +1,16 @@
+Property 'user.id' was updated. From 123 to '123'
+Property 'user.email' was updated. From 'alice@example.com' to 'alice@sample.com'
+Property 'user.isActive' was updated. From true to 'true'
+Property 'user.roles.1' was removed
+Property 'user.profile.bio' was removed
+Property 'user.profile.social.twitter' was updated. From '@alice123' to null
+Property 'user.profile.social.linkedin' was removed
+Property 'user.profile.social.instagram' was added with value: '@alice_ig'
+Property 'settings.theme' was updated. From 'dark' to 'light'
+Property 'settings.notifications.sms' was removed
+Property 'settings.language' was updated. From 'en' to ["en","fr"]
+Property 'history' was removed
+Property 'tags.0' was removed
+Property 'tags.1' was removed
+Property 'version' was updated. From '1.0' to '1.1'
+Property 'extra' was added with value: {"notes":"New field"}
