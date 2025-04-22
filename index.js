@@ -2,7 +2,7 @@ import buildDiff from './src/buildDiff.js';
 import { readFile, getFileExtention, parseFile } from './src/parseFile.js';
 import formatDiffData from './src/formatters/index.js';
 
-const getDiff = (filename1, filename2, format) => {
+const genDiff = (filename1, filename2, format) => {
   const file1 = readFile(filename1);
   const file2 = readFile(filename2);
 
@@ -17,4 +17,4 @@ const getDiff = (filename1, filename2, format) => {
   return formattedData;
 };
 
-export default getDiff;
+export default genDiff;
