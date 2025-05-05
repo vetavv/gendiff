@@ -11,17 +11,8 @@ const readFile = (filename) => {
   return fs.readFileSync(filePath, 'utf8');
 };
 
-const getFileExtention = filename => path.extname(filename);
-
-const parseFile = (file, extension) => {
-  if (extension === '.json') {
-    return JSON.parse(file);
-  }
-  if (extension === '.yml' || extension === '.yaml') {
-    return YAML.parse(file);
-  }
-
-  throw new Error(`Unsupported format: ${extension}`);
+const parseFile = (file) => {
+  return YAML.parse(file);
 };
 
-export { readFile, getFileExtention, parseFile };
+export { readFile, parseFile };
