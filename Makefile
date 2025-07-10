@@ -1,5 +1,8 @@
 install: deps-install
-	npm ci
+	npm link
+
+uninstall:
+	npm unlink gendiff -g
 
 deps-install:
 	npm ci
