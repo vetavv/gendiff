@@ -22,7 +22,7 @@ gendiff [options] <filepath1> <filepath2>
 
 |Option | Description |
 |--------|:--------|
-|`-f`, `--format` `<type>` | Output format: *stylish* (default), *plain*, or *json* |
+|`-f`, `--format` `<type>` | Output format: *stylish*, *plain*, or *json* (default) |
 |`-V`, `--version` | Show version |
 |`-h`, `--help` | Show help |
 
